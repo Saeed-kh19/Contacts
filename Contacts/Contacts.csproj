@@ -58,6 +58,12 @@
     <Compile Include="frmAddOrEdit.Designer.cs">
       <DependentUpon>frmAddOrEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFoods.Designer.cs">
+      <DependentUpon>frmFoods.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IContactsRepository.cs" />
@@ -67,6 +73,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddOrEdit.resx">
       <DependentUpon>frmAddOrEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFoods.resx">
+      <DependentUpon>frmFoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -51,6 +51,7 @@ namespace Contacts
             if (validateInputs())
             {
                 bool isSuccess = true;
+                bool isSuccess2 = true;
 
                 if (contactId == 0)
                 {
@@ -61,11 +62,11 @@ namespace Contacts
                     isSuccess = repository.Update(contactId, txtName.Text, txtNumber.Text, txtEmail.Text, (int)txtAge.Value, txtAddress.Text);
                 }
 
-                if (isSuccess)
+                if (isSuccess && isSuccess2)
                 {
                     if (contactId == 0)
                     {
-                        MessageBox.Show("Contact added successfuly", "Operation Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Contact added successfuly", "Operation Success", MessageBoxButtons.OK, MessageBoxIcon.Information); 
                     }
                     else
                     {

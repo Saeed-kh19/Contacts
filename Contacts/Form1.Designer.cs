@@ -43,14 +43,15 @@
             this.dgContacts = new System.Windows.Forms.DataGridView();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.btnMore = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FavoriteFoodId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Food = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnFavoriteFoods = new System.Windows.Forms.Button();
             this.tsContacts.SuspendLayout();
             this.gpSearch.SuspendLayout();
             this.gpContacts.SuspendLayout();
@@ -178,6 +179,7 @@
             this.Email,
             this.Age,
             this.Address,
+            this.FavoriteFoodId,
             this.Food});
             this.dgContacts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.dgContacts.Location = new System.Drawing.Point(9, 19);
@@ -213,19 +215,6 @@
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnMore
-            // 
-            this.btnMore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnMore.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnMore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMore.Location = new System.Drawing.Point(671, 398);
-            this.btnMore.Name = "btnMore";
-            this.btnMore.Size = new System.Drawing.Size(75, 23);
-            this.btnMore.TabIndex = 6;
-            this.btnMore.Text = "More";
-            this.btnMore.UseVisualStyleBackColor = false;
-            this.btnMore.Click += new System.EventHandler(this.btnMore_Click);
             // 
             // ID
             // 
@@ -275,6 +264,14 @@
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
             // 
+            // FavoriteFoodId
+            // 
+            this.FavoriteFoodId.DataPropertyName = "Id";
+            this.FavoriteFoodId.HeaderText = "FavoriteFoodId";
+            this.FavoriteFoodId.Name = "FavoriteFoodId";
+            this.FavoriteFoodId.ReadOnly = true;
+            this.FavoriteFoodId.Visible = false;
+            // 
             // Food
             // 
             this.Food.DataPropertyName = "foodName";
@@ -282,13 +279,26 @@
             this.Food.Name = "Food";
             this.Food.ReadOnly = true;
             // 
+            // btnFavoriteFoods
+            // 
+            this.btnFavoriteFoods.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnFavoriteFoods.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFavoriteFoods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFavoriteFoods.Location = new System.Drawing.Point(671, 398);
+            this.btnFavoriteFoods.Name = "btnFavoriteFoods";
+            this.btnFavoriteFoods.Size = new System.Drawing.Size(75, 23);
+            this.btnFavoriteFoods.TabIndex = 6;
+            this.btnFavoriteFoods.Text = "More";
+            this.btnFavoriteFoods.UseVisualStyleBackColor = false;
+            this.btnFavoriteFoods.Click += new System.EventHandler(this.btnFavoriteFoods_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(764, 433);
-            this.Controls.Add(this.btnMore);
+            this.Controls.Add(this.btnFavoriteFoods);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.gpContacts);
@@ -326,14 +336,15 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgContacts;
-        private System.Windows.Forms.Button btnMore;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mobile;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Age;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteFoodId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Food;
+        private System.Windows.Forms.Button btnFavoriteFoods;
     }
 }
 

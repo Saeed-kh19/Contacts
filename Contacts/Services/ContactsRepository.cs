@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Contacts
 {
@@ -61,14 +64,15 @@ namespace Contacts
 
         }
 
-        public bool InsertFood(string name)
+        public bool InsertFood(string name,int contactId)
         {
             SqlConnection connection = new SqlConnection(connectionString);
             try
             {
-                string query = "Insert Into Foods (name) values (@name)";
+                string query = "Insert Into Foods (cid,foodName) values (@cid,@foodName)";
                 SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@Name", name);
+                command.Parameters.AddWithValue("@foodName", name);
+                command.Parameters.AddWithValue("@cid", contactId);
                 connection.Open();
                 command.ExecuteNonQuery();
                 return true;
@@ -86,7 +90,7 @@ namespace Contacts
 
         public DataTable Search(string parameter)
         {
-            string query = "Select * From Contacts where Name like @parameter";
+            string query = "Select * From Contacts left join Foods on Contacts.ContactID = Foods.cid where Name like @parameter";
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             adapter.SelectCommand.Parameters.AddWithValue("@parameter", "%" + parameter + "%");
@@ -97,7 +101,7 @@ namespace Contacts
 
         public DataTable SearchPhone(string parameter)
         {
-            string query = "Select * From Contacts where PhoneNumber like @parameter";
+            string query = "Select * From Contacts left join Foods on Contacts.ContactID = Foods.cid where PhoneNumber like @parameter";
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             adapter.SelectCommand.Parameters.AddWithValue("@parameter", "%" + parameter + "%");
@@ -108,7 +112,7 @@ namespace Contacts
         
         public DataTable SelectRow(int Id)
         {
-            string query = "Select * From Contacts right join Foods on Contacts.ContactID = Foods.ContactId where ContactId=" + Id;
+            string query = "Select * From Contacts right join Foods on Contacts.ContactID = Foods.cid where ContactId=" + Id;
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataTable data = new DataTable();
@@ -118,7 +122,7 @@ namespace Contacts
 
         public DataTable showAll()
         {
-            string query = "Select * From Contacts right join Foods on Contacts.ContactID = Foods.ContactId";
+            string query = "Select * From Contacts left join Foods on Contacts.ContactID = Foods.cid";
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataTable data = new DataTable();
@@ -140,6 +144,30 @@ namespace Contacts
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@Age", age);
                 command.Parameters.AddWithValue("@Address", address);
+                connection.Open();
+                command.ExecuteNonQuery();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public bool UpdateFood(string name, int id)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                string query = "Update Foods Set foodName=@foodName where cid=@cid";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@foodName", name);
+                command.Parameters.AddWithValue("@cid", id);
                 connection.Open();
                 command.ExecuteNonQuery();
 

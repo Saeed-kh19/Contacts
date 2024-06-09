@@ -122,10 +122,15 @@ namespace Contacts
             }
         }
 
-        private void btnMore_Click(object sender, EventArgs e)
+        private void btnFavoriteFoods_Click(object sender, EventArgs e)
         {
             int contactId = int.Parse(dgContacts.CurrentRow.Cells[0].Value.ToString());
-
+            frmFoods frm = new frmFoods();
+            frm.contactId = contactId;
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                BindGrid();
+            }
         }
     }
 }
