@@ -22,7 +22,7 @@ namespace Contacts
 
         private void btnAddContact_Click(object sender, EventArgs e)
         {
-            frmAddOrEdit frm = new frmAddOrEdit();
+            frmAddOrEdit frm = new frmAddOrEdit(); //factory algorithm
             if (darkLightModeCounter % 2 != 0)
             {
                 frm.BackColor= SystemColors.WindowFrame;
@@ -120,6 +120,12 @@ namespace Contacts
                 txtSearchNumber.BackColor = SystemColors.Window;
                 tsContacts.BackColor = SystemColors.Control;
             }
+        }
+
+        private void btnMore_Click(object sender, EventArgs e)
+        {
+            int contactId = int.Parse(dgContacts.CurrentRow.Cells[0].Value.ToString());
+
         }
     }
 }

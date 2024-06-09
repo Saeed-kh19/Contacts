@@ -41,14 +41,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gpContacts = new System.Windows.Forms.GroupBox();
             this.dgContacts = new System.Windows.Forms.DataGridView();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnMore = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ContactName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mobile = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Age = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.Food = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsContacts.SuspendLayout();
             this.gpSearch.SuspendLayout();
             this.gpContacts.SuspendLayout();
@@ -65,7 +67,7 @@
             this.btnDarkLightMode});
             this.tsContacts.Location = new System.Drawing.Point(0, 0);
             this.tsContacts.Name = "tsContacts";
-            this.tsContacts.Size = new System.Drawing.Size(726, 25);
+            this.tsContacts.Size = new System.Drawing.Size(764, 25);
             this.tsContacts.TabIndex = 0;
             this.tsContacts.Text = "toolStrip1";
             // 
@@ -110,7 +112,7 @@
             this.gpSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpSearch.Location = new System.Drawing.Point(12, 28);
             this.gpSearch.Name = "gpSearch";
-            this.gpSearch.Size = new System.Drawing.Size(702, 66);
+            this.gpSearch.Size = new System.Drawing.Size(740, 66);
             this.gpSearch.TabIndex = 1;
             this.gpSearch.TabStop = false;
             this.gpSearch.Text = "Search";
@@ -119,7 +121,7 @@
             // 
             this.txtSearchNumber.Location = new System.Drawing.Point(501, 27);
             this.txtSearchNumber.Name = "txtSearchNumber";
-            this.txtSearchNumber.Size = new System.Drawing.Size(193, 20);
+            this.txtSearchNumber.Size = new System.Drawing.Size(233, 20);
             this.txtSearchNumber.TabIndex = 3;
             this.txtSearchNumber.TextChanged += new System.EventHandler(this.txtSearchNumber_TextChanged);
             // 
@@ -157,7 +159,7 @@
             this.gpContacts.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpContacts.Location = new System.Drawing.Point(12, 100);
             this.gpContacts.Name = "gpContacts";
-            this.gpContacts.Size = new System.Drawing.Size(702, 293);
+            this.gpContacts.Size = new System.Drawing.Size(740, 293);
             this.gpContacts.TabIndex = 4;
             this.gpContacts.TabStop = false;
             this.gpContacts.Text = "Contacts";
@@ -175,14 +177,55 @@
             this.Mobile,
             this.Email,
             this.Age,
-            this.Address});
+            this.Address,
+            this.Food});
             this.dgContacts.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.dgContacts.Location = new System.Drawing.Point(9, 19);
             this.dgContacts.MultiSelect = false;
             this.dgContacts.Name = "dgContacts";
             this.dgContacts.ReadOnly = true;
-            this.dgContacts.Size = new System.Drawing.Size(687, 268);
+            this.dgContacts.Size = new System.Drawing.Size(725, 268);
             this.dgContacts.TabIndex = 0;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Location = new System.Drawing.Point(21, 398);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(125)))));
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDelete.Location = new System.Drawing.Point(102, 398);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnMore
+            // 
+            this.btnMore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.btnMore.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnMore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMore.Location = new System.Drawing.Point(671, 398);
+            this.btnMore.Name = "btnMore";
+            this.btnMore.Size = new System.Drawing.Size(75, 23);
+            this.btnMore.TabIndex = 6;
+            this.btnMore.Text = "More";
+            this.btnMore.UseVisualStyleBackColor = false;
+            this.btnMore.Click += new System.EventHandler(this.btnMore_Click);
             // 
             // ID
             // 
@@ -232,39 +275,20 @@
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
             // 
-            // btnEdit
+            // Food
             // 
-            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Location = new System.Drawing.Point(21, 398);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 4;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(125)))));
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDelete.Location = new System.Drawing.Point(102, 398);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.Food.DataPropertyName = "foodName";
+            this.Food.HeaderText = "Favorite Food";
+            this.Food.Name = "Food";
+            this.Food.ReadOnly = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(726, 433);
+            this.ClientSize = new System.Drawing.Size(764, 433);
+            this.Controls.Add(this.btnMore);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.gpContacts);
@@ -302,12 +326,14 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgContacts;
+        private System.Windows.Forms.Button btnMore;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ContactName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mobile;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn Age;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Food;
     }
 }
 

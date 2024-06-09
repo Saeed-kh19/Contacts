@@ -61,6 +61,29 @@ namespace Contacts
 
         }
 
+        public bool InsertFood(string name)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
+            {
+                string query = "Insert Into Foods (name) values (@name)";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Name", name);
+                connection.Open();
+                command.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
         public DataTable Search(string parameter)
         {
             string query = "Select * From Contacts where Name like @parameter";
@@ -82,10 +105,10 @@ namespace Contacts
             adapter.Fill(data);
             return data;
         }
-
+        
         public DataTable SelectRow(int Id)
         {
-            string query = "Select * From Contacts where ContactId=" + Id;
+            string query = "Select * From Contacts right join Foods on Contacts.ContactID = Foods.ContactId where ContactId=" + Id;
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataTable data = new DataTable();
@@ -95,13 +118,14 @@ namespace Contacts
 
         public DataTable showAll()
         {
-            string query = "Select * From Contacts";
+            string query = "Select * From Contacts right join Foods on Contacts.ContactID = Foods.ContactId";
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
             DataTable data = new DataTable();
             adapter.Fill(data);
             return data;
         }
+
 
         public bool Update(int id, string name, string number, string email, int age, string address)
         {
