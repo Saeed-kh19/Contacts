@@ -130,7 +130,6 @@ namespace Contacts
             return data;
         }
 
-
         public bool Update(int id, string name, string number, string email, int age, string address)
         {
             SqlConnection connection = new SqlConnection(connectionString);
